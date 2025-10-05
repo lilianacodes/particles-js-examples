@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Particles JS viewer</title>
+  <style>
+    * {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    html, body {
+        height: 100%;
+        font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    body {
+        background-color: #061132; /* dark blue */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* particles container covers full viewport */
+    #particles-js {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+    }
+
+    /* layout wrapper for content */
+    .page {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 1.25rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin: 0 0 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+
+   .version-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 8px;
+        z-index: 4;
+   }
+
+   .version-switcher button {
+        background-color: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.06);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+        transition: transform .14s ease;
+        opacity: .14s ease;
+   }
+
+   .version-switcher button [aria-pressed="true"] {
+        background-color: rgba(255,255,255,0.12);
+        box-shadow: 0 4px 18px rgba(2,6,23,0.6);
+        transform: translateY(-2px);
+   }
+
+   .description {
+        color: #b9c6d9;
+        font-size: 15px;
+        margin-top: 0.25rem;
+   }
+
+    .hero-card{
+        padding:1.75rem 2.25rem;
+        border-radius:12px;
+        background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.12));
+        box-shadow:0 6px 36px rgba(2,6,23,0.6);
+        backdrop-filter: blur(6px);
+    }
+
+    @media (max-width: 420px) {
+        .version-switcher {
+            top: 12px;
+            right: 12px;
+        }
+        .version-switcher button {
+            padding: 7px 10px;
+            font-size:14px;
+        }
+    }
+
+  </style>
+  <body>
+    <!-- particles canvas -->
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <!-- top-right version switcher -->
+    <div class="version-switcher" role="tablist" aria-label="Version switcher">
+        <button role="tab" aria-pressed="true" data-version="v1">v1</button>
+        <button role="tab" aria-pressed="false" data-version="v2">v2</button>
+        <button role="tab" aria-pressed="false" data-version="v3">v3</button>
+        <button role="tab" aria-pressed="false" data-version="v4">v4</button>
+        <button role="tab" aria-pressed="false" data-version="v5">v5</button>
+    </div>
+
+    <main class="page">
+        <div class="hero-card" role="region" aria-labelledby="main-title">
+        <h1 id="main-title">Particles.js</h1>
+        <div class="description">Switch versions in the top-right to compare different library settings</div>
+        </div>
+    </main>
+
+    <!-- particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <script src="scripts/loader.js"></script>
+
+  </body>
+  </head>
+  </html>
